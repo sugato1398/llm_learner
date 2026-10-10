@@ -32,3 +32,10 @@ Dependency injetion of the settings object in our functions
 different levels of dependency injection - function level, route level, app level
 
 Applied router for grouping routes
+
+implemented lifecycle events for httpx client 
+ understood app.state
+ how requests gets injected in requests
+ significance of @asynccontextmanager
+ how lifecycle events works and why its better than older ones (  unresolved/open deps while shutdown or fail of one dep)
+ 

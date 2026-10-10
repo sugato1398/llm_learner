@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from controller.GetContact import contactRouter
 import uvicorn
+from lifecycle import lifespan
 
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 app.include_router(contactRouter)
 
