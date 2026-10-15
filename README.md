@@ -38,4 +38,13 @@ implemented lifecycle events for httpx client
  how requests gets injected in requests
  significance of @asynccontextmanager
  how lifecycle events works and why its better than older ones (  unresolved/open deps while shutdown or fail of one dep)
+
+
+called anthropic api directly - understood why calls failed - bad headers and no responses
+
+got raw response from anthropic api
+
+accidentally exited httpx client which failed subsequent REST calls
+
+added pydantic model classes
  
