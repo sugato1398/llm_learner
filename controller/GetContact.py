@@ -69,3 +69,23 @@ async def claudechat(message: Message, request: Request, settings: Settings = De
     data = result.json()
 
     return data
+
+
+@contactRouter.post('/chatToken')
+async def chattoken(message: Message, request: Request, settings: Settings = Depends(get_settings)) -> dict :
+    headers = { 'x-api-key': settings.anthropic_api_key, 'anthropic-version': '2023-06-01'}
+    body = {
+        
+        'model': 'claude-sonnet-5-5',
+        'messages': [{
+            'content': message.msg,
+            'role': 'user'
+        }]
+    }
+    client = request.app.state.http
+    result = await client.post('https://api.anthropic.com/v1/messages/count_tokens', headers=headers,json=body)
+
+    result.raise_for_status()
+    data = result.json()
+
+    return data
